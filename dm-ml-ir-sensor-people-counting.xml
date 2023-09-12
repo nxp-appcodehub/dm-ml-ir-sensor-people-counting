@@ -1,0 +1,29 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="dm-ml-ir-sensor-people-counting" type="demo" format="projectfile" name="ML IR Sensor People Counting">
+    <display_title>
+        Leveraging deep learning to count the number of people in a room using a low-resolution 8x8 infrared array sensor
+    </display_title>
+    <overview>
+        <![CDATA[This shows how to create a deep learning model to count the number of people in a room using a low-resolution 8x8 infrared array sensor.]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="lpc"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="LPCXpresso55S69"></hw>
+        <hw id="LPCXpresso55S28"></hw>
+    </nxp_compatible_hw>
+    <peripherals>
+        <peripheral name="i2c"></peripheral>
+        <peripheral name="sensor"></peripheral>
+        <peripheral name="uart"></peripheral>
+        <peripheral name="timer"></peripheral>
+        <peripheral name="clocks"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="aiml"></category>
+        <category name="vision"></category>
+    </categories>
+</data:item>
