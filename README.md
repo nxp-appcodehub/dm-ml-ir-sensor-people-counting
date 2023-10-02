@@ -2,20 +2,8 @@
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
 ## Leveraging deep learning to count the number of people in a room using a low-resolution 8x8 infrared array sensor
-*The title should clearly indicate what the example code does. If the example is for an application note, then the document reference (e.g. AN12345) should be appended at the beginning.*
 
-This shows how to create a deep learning model to count the number of people in a room using a low-resolution 8x8 infrared array sensor.
-
-*Description should provide a clear explanation of what the code is for, and provide links to any related documentation. If documentation is included in the Github repo then its location should be mentioned here, along with the name of documentation file(s). If the code is a snippet/general software, then a sufficient description must be provided for a developer to fully understand the example, either in this readme or in another document in the repo.*
-
-*If the code is an App SW pack then a link to the software summary page (SSP) on nxp.com must be provided.*
-
-*If the code is a demo, then a link to any related videos on nxp.com.Youtube, and/or other related pages must be provided.*
-
-*For training content you must reference the class training number (e.g. AMP-ENT-T4545), if available. You should also refer the reader to the training workbook and other materials from the class here.*
-
-*Ask yourself - if you were finding this code for the first time, is there enough information to make it useful? Think **QUALITY**.*
-
+This demo shows how to create a deep learning model to count the number of people in a room using a low-resolution 8x8 infrared array sensor.
 
 #### Boards: LPCXpresso55S69, LPCXpresso55S28
 #### Categories: AI/ML, Vision
@@ -27,38 +15,63 @@ This shows how to create a deep learning model to count the number of people in 
 2. [Hardware](#step2)
 3. [Setup](#step3)
 4. [Results](#step4)
-5. [FAQs](#step5) 
+5. [FAQs](#step5)
 6. [Support](#step6)
 7. [Release Notes](#step7)
 
 ## 1. Software<a name="step1"></a>
-*In this section you should provide details of tools and software used (name and version.) Tool chain will already be a tag, but version information is needed. Also include any software that comes from outside of the SDK. Tell the reader where to find the software; for MCUXpresso tools you can reference https://nxp.com/mcuxpresso.*
+* [MCUXpresso v11.8.0](https://nxp.com/mcuxpresso)
+* LPCXpresso55S69 SDK from the [MCUXpresso SDK Builder](https://mcuxpresso.nxp.com/en/select) or from the [MCUXpresso SDK repository](https://github.com/nxp-mcuxpresso/mcux-sdk).
+* [Python 3.11+](https://www.python.org/downloads/)
+* [Jupyter notebook](https://jupyter.org/install) or [VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 ## 2. Hardware<a name="step2"></a>
-*In this section you should list hardware required to run the code, per the project file(s) that are included, with any relevant information about portability to other platforms.*
-
+* [LPCXpresso55s69](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/lpcxpresso-boards/lpcxpresso55s69-development-board:LPC55S69-EVK)
+* [LPCXpresso55s28](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/lpcxpresso-boards/lpcxpresso55s28-development-board:LPC55S28-EVK)
+* [Grid-EYE CLICK](https://www.mikroe.com/grid-eye-click)
+* Micro USB cable
 ## 3. Setup<a name="step3"></a>
-*For app notes and ap sw packs you can refer the reader to the documentation from the introduction here. For demos and code snippets/general code you should provide a description of how to build and run the code. Steps 1, 2, etc. can be added/deleted as appropriate.*
+### 3.1 MCU Application Setup
+1. Add the LPCXpresso55S69 SDK to the MCUXpresso IDE by right clicking on `Installed SDKs` and selecting `Import archive...` for the SDK downloaded from the SDK Builder or `Import remote SDK Git repository...` for the MCUXpresso SDK repository.  
+![add_sdk](images/add_sdk.png)
+2. Clone this repository anywhere in your drive.
+3. Open MCUXpresso and select `File` -> `Open Projects from File System...`.  
+![opne_project](images/open_project.png)
+4. Under Import Source, select `Directory...`, navigate to `<repo_location>/mcu_app/<board>` and click on `Select Folder`.
+5. Make Sure that the project is selected in the window and click `Finish`.  
+![project_importer](images/project_importer.png)
+6. Right click on the project in the `Project Explorer` then navigate to `Build Configurations` -> `Set Active` -> `Release`.  
+![active_configuration](images/active_config.png)
+7. Connect the Grid-EYE CLICK board to `P23` and `P24` as shown in the image below.  
+![Board](images/board.png)
+8. Connect the board to your computer through the `Debug Link` (`P6`) connector on the board.
+9. Build the application by clicking on `build` and then flash it to the board by either clicking on `Debug` or by selecting the gray rectangle on the tool bar.  
+![build_and_flash](images/build_and_flash.png)
+10. Mount the board to the ceiling for best results. Refer to Fig. 2 in [this research paper](https://arxiv.org/pdf/2304.06059.pdf).
 
-*For training content you would usually refer the reader to the training workbook here.*
-
-### 3.1 Step 1
-```
-code snippet to copy/paste to project
-```
-
-### 3.2 Step 2
+### 3.2 Training Setup
+1. We will use VS Code to open and run the Jupyter Notebook.
+2. Open VS Code, click on `File` -> `Open Folder`, and navigate to `<repo_location>/training` and click `Select Folder`. Once opened, the Explorer should look like below.  
+![training_folder](images/training_folder.png)
+3. Open the `create_model.ipynb` file and then click on `Select Kernel` in the top right.  
+![open_ipynb](images/open_ipynb.png)
+4. Follow the instructions in the pop up to create a virtual environment.
+5. After successfully creating a virtual environment, follow the instructions in the notebook to retrain or create a new model.
+6. Once you have a new model, modify `mcu_app/common/model/model_config.h` and `mcu_app/common/model/model_ops.cpp` according to your new model.
+7. Rebuild the MCU application, flash it to the board, and run it.
 
 ## 4. Results<a name="step4"></a>
-*For app notes and ap sw packs you can refer the reader to the documentation from the introduction here, or just say "Not applicable for this example". For demos and code snippets/general code you should normally provide a description of what should happen when you run the code.*
-
-*For training content you would usually refer the reader to the training workbook here.*
+* When running the model on the board, open a serial terminal and connect to the board to see the inference results.  
+![terminal](images/terminal.png)
+* When running the model on your computer using real-time data from the board, the animation on the Jupyter Notebook will look like below.  
+![animation](images/animation.png)
 
 ## 5. FAQs<a name="step5"></a>
-*Include FAQs here if appropriate. If there are none, then state "No FAQs have been identified for this project".*
+1. How do I generate the operations for model_ops.cpp?
+    > You can use the [eIQ Toolkit](https://www.nxp.com/design/software/eiq-ml-development-environment/eiq-toolkit-for-end-to-end-model-development-and-deployment:EIQ-TOOLKIT)'s Model Tool to view all of the required operations for your model and manually add them to the ops resolver.
 
 ## 6. Support<a name="step6"></a>
-*Provide URLs for help here.*
+Please submit any issues within this GitHub repository.
 
 #### Project Metadata
 <!----- Boards ----->
@@ -85,5 +98,5 @@ Questions regarding the content/correctness of this example can be entered as Is
 ## 7. Release Notes<a name="step7"></a>
 | Version | Description / Update                           | Date                        |
 |:-------:|------------------------------------------------|----------------------------:|
-| 1.0     | Initial release on Application Code Hub        | September 12<sup>th</sup> 2023 |
+| 1.0     | Initial release on Application Code Hub        | September 26<sup>nd</sup> 2023 |
 

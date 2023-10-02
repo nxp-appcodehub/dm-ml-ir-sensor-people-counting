@@ -1,0 +1,81 @@
+NXP Software Content Register
+
+Package: ML IR Sensor People Counting Demo
+Version: 1.0.0
+Outgoing License: BSD-3-Clause
+License File: LICENSE.txt
+Description and Comments: Demo showing how to create a deep learning model to count the number of people in a room using a low resolution IR sensor.
+Release Location: https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting
+Release Branch: main
+Origin: NXP (BSD-3-Clause)
+
+Compatible SDK Version: 2.14.0
+Compatible SDK Tag: MCUX_2.14.0
+Compatible SDK Url: https://github.com/NXPmicro/mcux-sdk/tree/MCUX_2.14.0
+
+--------------------------------------------
+Component:                 CMSIS
+Version:                   5.8.0
+Outgoing License:          License Apache License 2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/mcu_app/common/CMSIS/license.txt
+Format:                    Source
+Description and comments:  Vendor-independent hardware abstraction layer for microcontrollers that are based on Arm Cortex processors, distributed by ARM.
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/mcu_app/common/CMSIS
+Origin:                    ARM (Apache-2.0) - httpsgithub.comARM-softwareCMSIS_5releasestag5.8.0
+--------------------------------------------
+Component:                 LINAIGE Dataset
+Version:                   NA
+Outgoing License:          Attribution 4.0 International (CC BY 4.0)
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/training/data/linaige/license.txt
+Format:                    CSV data
+Description and comments:  Dataset used to train model
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/training/data/linaige/
+Origin:                    https://www.kaggle.com/datasets/francescodaghero/linaige
+--------------------------------------------
+Component:                 TensorFlow Lite for Microcontrollers
+Version:                   23-03-23 (commit 75f5290)
+Outgoing License:          License Apache-2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/LICENSE
+Format:                    Source
+Description and comments:  Description Software library for running machine learning models on embedded devices
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/
+                           https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/model/preprocess
+                           https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/model/postprocess
+Origin:                    https://github.com/tensorflow
+--------------------------------------------
+Component:                 FlatBuffers
+Version:                   2.0.6 (commit a66de58)
+Outgoing License:          Apache-2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/flatbuffers/LICENSE.txt
+Format:                    Source
+Description and comments:  Cross platform serialization library
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/flatbuffers
+Origin:                    https://github.com/google/flatbuffers
+--------------------------------------------
+Component:                 gemmlowp
+Version:                   NA (commit 719139c)
+Outgoing License:          License Apache-2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/gemmlowp/LICENSE.txt
+Format:                    Source
+Description and comments:  A small self-contained low-precision GEMM library
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/gemmlowp
+Origin:                    https://github.com/google/gemmlowp
+--------------------------------------------
+Component:                 ruy
+Version:                   NA (commit d371283)
+Outgoing License:          License Apache-2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/ruy/LICENSE
+Format:                    Source
+Description and comments:  The ruy matrix multiplication library
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/ruy/
+Origin:                    https://github.com/google/ruy
+--------------------------------------------
+Component:                 CMSIS-NN library
+Version:                   4.1.0 (commit d071e9f)
+Outgoing License:          License Apache-2.0
+License File:              https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/cmsis/LICENSE.txt
+Format:                    Source
+Description and comments:  A neural network kernels library for Cortex-M cores from ARM
+Release Location:          https://github.com/nxp-appcodehub/dm-ml-ir-sensor-people-counting/tree/main/common/eiq/tensorflow-lite/third_party/cmsis/
+Origin:                    https://github.com/ARM-software/CMSIS-NN
+--------------------------------------------           
